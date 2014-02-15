@@ -1,6 +1,6 @@
 Python Hadoop streaming MapReduce scripts - Inverted Index
 =============================
-This MapReduce scripts creates an inverted index for forum post data where the index includes, post title, tags, body text with the associated post id, word order and catagory (body_text, title or tag).
+This MapReduce script creates an inverted index for forum post data where the index includes, post title, tags, body text with the associated post id, word order and catagory (body_text, title or tag).
 
 For demonstration purposes, it assumed that the input posts text file (forum_node.tsv) is a tab separated file with the following columns:
 
@@ -60,7 +60,7 @@ The reducer generates a text stream with a tab separated index containing the ke
 * "keyword": The searchable keyword
 * "post_id: The id of the forum post
 * "word_order": the word location in the text, eg. 0 indicates that it's the first word in the text, 12 indicates that it's the 13th word in the text.
-* "location_catagory": indicates if the word is in the body "A", tagnames "T" or the title "H"
+* "location_catagory": indicates if the word is in the body "B", tagnames "T" or the title "H"
  
 
 ```
