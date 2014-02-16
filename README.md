@@ -27,27 +27,21 @@ run_mapreduce() {
         hadoop jar /usr/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-streaming-2.0.0-mr1-cdh4.1.1.jar -mapper $1 -reducer $2 -file $1 -file $2 -input $3 -output $4
 }
 
-run_mapreduce_with_combiner() {
-        hadoop jar /usr/lib/hadoop-0.20-mapreduce/contrib/streaming/hadoop-streaming-2.0.0-mr1-cdh4.1.1.jar -mapper $1 -reducer $2 -combiner $2 -file $1 -file $2 -input $3 -output $4
-}
 
 
 alias hs=run_mapreduce
 
-alias hsc=run_mapreduce_with_combiner
+
 ```
 
-Once the alias has been setup you can either run the process as a MapReduce or as a MapReduce using reduce.py as both the reducer and combiner for improved distributed performance.
+Once the alias has been setup you can either run the process as a MapReduce using the aliased command hs.
 
 eg.
 
 ```shell
 hs mapper.py reducer.py forum_data inverted_index
 ```
-Or with a combiner
-```shell
-hsc mapper.py reducer.py forum_data inverted_index
-```
+
 
 where:
 * "forum_data" is the folder in the HDFS containing the forum node text records
